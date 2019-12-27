@@ -66,3 +66,8 @@
 - jsonwebtoken
 - supertest
 - jest
+
+
+## reference projects
+- sprint-challenge-authentication
+- node-db4-challenge
