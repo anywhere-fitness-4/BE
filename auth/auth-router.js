@@ -3,7 +3,6 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-//       ***** this is built out assuming there will be a single users table *****
 const Users = require('../users/users-model');
 
 // POST - register    >>    Test
@@ -47,6 +46,24 @@ router.post('/login', (req, res) => {
     })
 });
 
+// GET - logout    >>    Test    *** written in sessions rn need to change to token ***
+// router.get('/logout', (req, res) => {
+//   if (req.session) {
+//       req.session.destroy(err => {
+//           if (err) {
+//               res.status(500)
+//                   .json({ message: 'Could not logout' })
+//           } else {
+//               res.status(200)
+//                   .json({ message: 'Successful logout' })
+//           }
+//       })
+//   } else {
+//       res.status(200)
+//           .end();
+//   }
+// });
+
 function signToken(user) {
   const payload = {
     username: user.username,
@@ -62,4 +79,3 @@ function signToken(user) {
 };
 
 module.exports = router;
-//       ***** this is built out assuming there will be a single users table *****

@@ -1,7 +1,5 @@
 //          ***** built assuming 1 users table with additional info held in token for authentication *****
 
-// did not use 'migrate:latest' this file was just saved to not lose info
-
 exports.up = function(knex) {
     return knex.schema.createTable('roles', tbl => {
         tbl.increments();
@@ -10,10 +8,17 @@ exports.up = function(knex) {
     })
     .createTable('users', tbl => {
         tbl.increments();
-        tbl.string('name', 255)
+        tbl.string('username', 255)
             .notNullable();
-        tbl.integer('role_id')
-            // need to add foreign key reqs here
+        tbl.string('password', 255)
+            .notNullable();
+        // tbl.integer('role_id')
+        //     .unsigned()
+        //     .notNullable()
+        //     .references('id')
+        //     .inTable('roles')
+        //     .onDelete('CASCADE')
+        //     .onUpdate('CASCADE');
     })
     .createTable('classes', tbl => {
         tbl.increments();
@@ -38,9 +43,19 @@ exports.up = function(knex) {
         })
     .createTable('user_classes', tbl => {
         tbl.integer('user_id')
-            // need to add foreign key reqs here
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('users')
+            .onDelete('CASCADE')
+            .onUpdate('CASCADE');
         tbl.integer('class_id')
-            // need to add foreign key reqs here
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('classes')
+            .onDelete('CASCADE')
+            .onUpdate('CASCADE');
     })
 };
 
