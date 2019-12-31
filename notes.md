@@ -6,11 +6,13 @@
 
 
 # MVP
+<!-- ✔ -->
 1. User can create/register as a "Client" and login with the registered credentials.(web, mobile)
+<!-- ✔ -->
 2. User can create/register as an "Instructor" by entering an additional Auth Code during signup, and can login with the registered credentials.(web, mobile)
-
+<!-- ✔ -->
 3. "Client" and "Instructor" are both presented with the appropriate onboarding walkthrough on first signin, with an option to skip it.(UX, mobile)
-
+<!-- ✔ BUT minor issues with post message and edit not working -->
 4. Authenticated "Instructor" can create update and delete a "Class". At a minimum, each "class" must have the following properties(web, mobile):
 	* Name
 	* Type
@@ -20,9 +22,9 @@
 	* Location
 	* Current number of registered attendees
 	* Max class size
-
+<!-- maybe instructors can add punch passes to their profile? -->
 5. Authenticated "Instructor" can create "virtual" punch pass categories for each type of group fitness class they offer (yoga, insanity, RIPPED, HIGH, pilates, etc.)(mobile)
-
+<!-- can get full list of classes, use 'getBy' for specific searches -->
 6. Authenticated "Client" can search for avaialble classes. At a minimum, they must be able to search by the following criteria(web, mobile):
 	* class time
 	* class date

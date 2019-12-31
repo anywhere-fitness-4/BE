@@ -3,7 +3,7 @@ const router = require('express').Router();
 const Users = require('./users-model');
 const restricted = require('../auth/authenticate-middleware');
 
-// GET - users    >>    TEST
+// GET - users    >>    Working
 router.get('/', restricted, (req, res) => {
   Users.get()
     .then(users => {

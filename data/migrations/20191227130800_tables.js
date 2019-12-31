@@ -12,13 +12,13 @@ exports.up = function(knex) {
             .notNullable();
         tbl.string('password', 255)
             .notNullable();
-        // tbl.integer('role_id')
-        //     .unsigned()
-        //     .notNullable()
-        //     .references('id')
-        //     .inTable('roles')
-        //     .onDelete('CASCADE')
-        //     .onUpdate('CASCADE');
+        tbl.integer('role_id')
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('roles')
+            .onDelete('CASCADE')
+            .onUpdate('CASCADE');
     })
     .createTable('classes', tbl => {
         tbl.increments();

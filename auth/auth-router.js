@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const Users = require('../users/users-model');
 
-// POST - register    >>    Test
+// POST - register    >>    Working
 router.post('/register', (req, res) => {
   let username = req.body;
   const hash = bcrypt.hashSync(username.password, 8);
@@ -23,7 +23,7 @@ router.post('/register', (req, res) => {
     })
 });
 
-// POST - login    >>    Test
+// POST - login    >>    Working
 router.post('/login', (req, res) => {
   let { username, password } = req.body;
 
@@ -46,6 +46,7 @@ router.post('/login', (req, res) => {
     })
 });
 
+// DONT NEED logout?
 // GET - logout    >>    Test    *** written in sessions rn need to change to token ***
 // router.get('/logout', (req, res) => {
 //   if (req.session) {
