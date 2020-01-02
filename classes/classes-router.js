@@ -39,7 +39,7 @@ router.post('/', restricted, (req, res) => {
     })
 });
 
-// PUT - classes    >>    TEST
+// PUT - classes    >>    Working
 router.put('/:id', restricted, (req, res) => {
   const { id } = req.params;
   const changes = req.body;

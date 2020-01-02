@@ -75,7 +75,11 @@ function addClass(classes) {
     })
 };
 
-function editClass() {}
+function editClass(changes, id) {
+  return db('classes')
+    .where({ id })
+    .update(changes, '*')
+};
 
 function deleteClass(id) {
   return db('classes')

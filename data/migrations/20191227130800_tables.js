@@ -5,6 +5,9 @@ exports.up = function(knex) {
         tbl.increments();
         tbl.string('role', 255)
             .notNullable();
+        // tbl.boolean('instructor')
+        //     .notNullable()
+        //     .defaultTo(false);
     })
     .createTable('users', tbl => {
         tbl.increments();
