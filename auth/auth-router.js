@@ -1,4 +1,3 @@
-//       ***** this is built out assuming there will be a single users table *****
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -10,12 +9,6 @@ router.post('/register', (req, res) => {
   let username = req.body;
   const hash = bcrypt.hashSync(username.password, 8);
   username.password = hash;
-  // create obj, username + pass + roleId, send obj into model with user.add
-  // const newInstructor = {
-  //   username: '',
-  //   password: '',
-  //   role_id: '',
-  // }
 
   Users.add(username)
     .then(user => {
@@ -51,25 +44,6 @@ router.post('/login', (req, res) => {
         .json({ message: 'Could not login user' })
     })
 });
-
-// DONT NEED logout?
-// GET - logout    >>    Test    *** written in sessions rn need to change to token ***
-// router.get('/logout', (req, res) => {
-//   if (req.session) {
-//       req.session.destroy(err => {
-//           if (err) {
-//               res.status(500)
-//                   .json({ message: 'Could not logout' })
-//           } else {
-//               res.status(200)
-//                   .json({ message: 'Successful logout' })
-//           }
-//       })
-//   } else {
-//       res.status(200)
-//           .end();
-//   }
-// });
 
 function signToken(user) {
   const payload = {

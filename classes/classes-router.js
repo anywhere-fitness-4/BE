@@ -28,8 +28,24 @@ router.get('/', restricted, (req, res) => {
     });
 });
 
-// POST - classes    >>    1/2 Working
-//              *** Working but gives wrong status code and message ***
+// GET-byId classes     >>      Working
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+
+  Classes.getByIdClasses(id)
+  .then(classes => {
+    if (classes) {
+      res.json(classes);
+    } else {
+      res.status(404).json({ message: 'Could not find class with given id.' })
+    }
+  })
+  .catch(err => {
+    res.status(500).json({ message: 'Failed to get classes' });
+  });
+});
+
+// POST - classes    >>    Working
 router.post('/', restricted, checkRole, (req, res) => {
   const classData = req.body;
   if (classData) {
