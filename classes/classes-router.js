@@ -2,6 +2,17 @@ const router = require('express').Router();
 
 const Classes = require('../users/users-model');
 const restricted = require('../auth/authenticate-middleware');
+// middleware to validate the information in the body
+
+function checkRole(req, res, next) {
+      if (req.token.role == 1) {
+          next()
+      } else {
+          console.log('Not Authorized');
+          res.status(403)
+              .json({ message: 'Not authorized, you must be an instructor'})
+      }
+};
 
 // GET - classes    >>    Working
 router.get('/', restricted, (req, res) => {
@@ -19,28 +30,27 @@ router.get('/', restricted, (req, res) => {
 
 // POST - classes    >>    1/2 Working
 //              *** Working but gives wrong status code and message ***
-router.post('/', restricted, (req, res) => {
+router.post('/', restricted, checkRole, (req, res) => {
   const classData = req.body;
-  console.log(req.body);
-  Classes.addClass(classData)
+  if (classData) {
+    Classes.addClass(classData)
     .then(newClass => {
-      if (newClass) {
         res.status(201)
-          .json(newClass)
-      } else {
-        res.status(404)
-          .json({ message: 'Please provide required information' })
-      }
+        .json({ newClass, message: 'New class created'})
     })
     .catch(err => {
-      console.log('Error posting new class POST', err)
-      res.status(500)
-        .json({ message: 'Failed to add new class' })
+      res.status(404)
+      .json({ message: 'Please provide required information' })
     })
+  } else {
+    console.log('Error posting new class POST', err)
+    res.status(500)
+      .json({ message: 'Failed to add new class' })
+  }
 });
 
 // PUT - classes    >>    Working
-router.put('/:id', restricted, (req, res) => {
+router.put('/:id', restricted, checkRole, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -64,7 +74,7 @@ router.put('/:id', restricted, (req, res) => {
 });
 
 // DELETE - classes    >>    Working
-router.delete('/:id', restricted, (req, res) => {
+router.delete('/:id', restricted, checkRole, (req, res) => {
   const { id } = req.params;
 
   Classes.deleteClass(id)
