@@ -25,7 +25,7 @@ localhost:4000/api/users
 
 # Classes
 localhost:4000/api/classes
-## GET classes
+### GET classes
 /
 
 ### GET class by id
