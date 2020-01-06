@@ -32,18 +32,18 @@ Required: {
 /:id
 
 ### POST create a new class
-/ \n
-EXAMPLE -> \n
- Required: {
-  "name": "lift",
-	"type": "weights",
-	"class_date": "2/8/20",
-	"start_time": "5:00 PM",
-	"duration": 1,
-	"intensity": "high",
-	"location": "weight-room-02",
-	"number_of_attendees": 23,
-	"max_attendees": 30
+/  
+EXAMPLE ->  
+ Required: {  
+  "name": "lift",  
+	"type": "weights",  
+	"class_date": "2/8/20",  
+	"start_time": "5:00 PM",  
+	"duration": 1,  
+	"intensity": "high",  
+	"location": "weight-room-02",  
+	"number_of_attendees": 23,  
+	"max_attendees": 30  
 }
 
 ### PUT edit class info
