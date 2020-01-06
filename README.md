@@ -3,7 +3,7 @@
 # Register/Login
 localhost:4000/api/auth
 
-## POST Register
+### POST Register
 /register
 Required: {
   username:
@@ -11,7 +11,7 @@ Required: {
   role_id: (1 = instructor, 2 = client)
 }
 
-## POST Login
+### POST Login
 localhost:4000/api/auth/login
 Required: {
   username:
@@ -19,7 +19,7 @@ Required: {
 }
 
 
-## GET users
+### GET users
 localhost:4000/api/users
 
 
@@ -28,10 +28,10 @@ localhost:4000/api/classes
 ## GET classes
 /
 
-## GET class by id
+### GET class by id
 /:id
 
-## POST create a new class
+### POST create a new class
 /
 EXAMPLE -> 
  Required: {
@@ -46,9 +46,9 @@ EXAMPLE ->
 	"max_attendees": 30
 }
 
-## PUT edit class info
+### PUT edit class info
 /:id
 Required: = same as for posting a new class
 
-## DELETE class
+### DELETE class
 /:id
