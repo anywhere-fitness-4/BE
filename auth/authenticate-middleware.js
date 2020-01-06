@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
           .json({ message: 'Invalid token' })
       } else {
         req.token = decodedToken;
+        console.log('passed restricted')
         next()
       }
     });

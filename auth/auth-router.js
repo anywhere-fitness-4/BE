@@ -10,6 +10,12 @@ router.post('/register', (req, res) => {
   let username = req.body;
   const hash = bcrypt.hashSync(username.password, 8);
   username.password = hash;
+  // create obj, username + pass + roleId, send obj into model with user.add
+  // const newInstructor = {
+  //   username: '',
+  //   password: '',
+  //   role_id: '',
+  // }
 
   Users.add(username)
     .then(user => {
@@ -68,12 +74,13 @@ router.post('/login', (req, res) => {
 function signToken(user) {
   const payload = {
     username: user.username,
+    role: user.role_id
   };
 
   const secret = process.env.JWT_SECRET || 'is it secret, is it safe';
 
   const options = {
-    expiresIn: '1h'
+    expiresIn: '7d'
   };
 
   return jwt.sign(payload, secret, options);

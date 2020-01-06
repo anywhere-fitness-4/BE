@@ -1,13 +1,8 @@
-//          ***** built assuming 1 users table with additional info held in token for authentication *****
-
 exports.up = function(knex) {
     return knex.schema.createTable('roles', tbl => {
         tbl.increments();
         tbl.string('role', 255)
             .notNullable();
-        // tbl.boolean('instructor')
-        //     .notNullable()
-        //     .defaultTo(false);
     })
     .createTable('users', tbl => {
         tbl.increments();
