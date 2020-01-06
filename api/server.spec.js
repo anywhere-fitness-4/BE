@@ -25,15 +25,6 @@ describe('server.js', function() {
 
     describe('/Register', function() {
 
-        // it ('should return a 201 OK', function() {
-        //     return request(server)
-        //         .post('/api/auth/register')
-        //         .send({ username: `${Date.now()}`, password: `${Date.now()}`})
-        //         .then(res => {
-        //             expect(res.status).toBe(201)
-        //         });
-        // });
-
         it ('is a json object', function() {
             return request(server)
                 .post('/api/auth/register')

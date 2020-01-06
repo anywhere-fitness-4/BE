@@ -3,9 +3,7 @@
 > These days, fitness classes can be held anywhere - a park, an unfinished basement or a garage - not just at a traditional gym. Certified fitness instructors need an easy way to take the awkwardness out of attendance taking and client payment processing. While you could use several mobile apps to accomplish this, AnywhereFitness is the all-in-one solution to meet your “on-location” fitness class needs. AnywhereFitness makes it painless for Instructors and Clients alike to hold and attend Fitness classes wherever they might be held. Instructors can take attendance, request and process payments, create virtual “punch passes” for each type of class offered, alert clients of cancellations or location changes and so much more. Clients can easily find out information on classes - location, class size, start time and duration, as well as reschedule or cancel an upcoming appointment or reservation right from the mobile app.
 
 
-<!-- Should I change roles table to hold the roles as booleans? -->
 <!-- deploy -->
-<!-- Need to add testing -->
 
 # MVP
 <!-- ✔ -->
@@ -14,7 +12,7 @@
 2. User can create/register as an "Instructor" by entering an additional Auth Code during signup, and can login with the registered credentials.(web, mobile)
 <!-- ✔ -->
 3. "Client" and "Instructor" are both presented with the appropriate onboarding walkthrough on first signin, with an option to skip it.(UX, mobile)
-<!-- ✔ BUT minor issues with post message and edit not working -->
+<!-- ✔ -->
 4. Authenticated "Instructor" can create update and delete a "Class". At a minimum, each "class" must have the following properties(web, mobile):
 	* Name
 	* Type
@@ -24,7 +22,7 @@
 	* Location
 	* Current number of registered attendees
 	* Max class size
-<!-- ✔ (Done by FE?) -->
+<!-- ✔ (Done by FE) -->
 5. Authenticated "Instructor" can create "virtual" punch pass categories for each type of group fitness class they offer (yoga, insanity, RIPPED, HIGH, pilates, etc.)(mobile)
 <!-- ✔ (This is mostly FE work but make sure getBy is working) -->
 6. Authenticated "Client" can search for avaialble classes. At a minimum, they must be able to search by the following criteria(web, mobile):
