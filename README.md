@@ -1,7 +1,7 @@
 # BE
 
 # Register/Login
-localhost:4000/api/auth
+/api/auth
 
 ### POST Register
 /register
@@ -12,7 +12,7 @@ Required: {
 }
 
 ### POST Login
-localhost:4000/api/auth/login
+/login
 Required: {
   username:
   password:
@@ -20,11 +20,11 @@ Required: {
 
 
 ### GET users
-localhost:4000/api/users
+/api/users
 
 
 # Classes
-localhost:4000/api/classes
+/api/classes
 ### GET classes
 /
 
