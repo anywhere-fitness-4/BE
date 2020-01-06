@@ -32,8 +32,8 @@ Required: {
 /:id
 
 ### POST create a new class
-/
-EXAMPLE -> 
+/ \n
+EXAMPLE -> \n
  Required: {
   "name": "lift",
 	"type": "weights",
