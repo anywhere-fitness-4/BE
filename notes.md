@@ -4,6 +4,8 @@
 
 
 <!-- Should I change roles table to hold the roles as booleans? -->
+<!-- deploy -->
+<!-- Need to add testing -->
 
 # MVP
 <!-- ✔ -->
