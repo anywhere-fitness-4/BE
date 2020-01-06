@@ -4,18 +4,18 @@
 /api/auth
 
 ### POST Register
-/register
-Required: {
-  username:
-  password:
-  role_id: (1 = instructor, 2 = client)
+/register  
+Required: {  
+  username:  
+  password:  
+  role_id: (1 = instructor, 2 = client)  
 }
 
 ### POST Login
-/login
-Required: {
-  username:
-  password:
+/login  
+Required: {  
+  username:  
+  password:  
 }
 
 
@@ -47,7 +47,7 @@ EXAMPLE ->
 }
 
 ### PUT edit class info
-/:id
+/:id  
 Required: = same as for posting a new class
 
 ### DELETE class
