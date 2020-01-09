@@ -25,6 +25,16 @@ describe('server.js', function() {
 
     describe('/Register', function() {
 
+        it ('should return status code 201', function() {
+            return request(server)
+                .post('/api/auth/register')
+                .send({ 
+                    username: `${Date.now()}`, 
+                    password: `${Date.now()}`, 
+                    role_id: 2})
+                .expect(201)
+        });
+
         it ('is a json object', function() {
             return request(server)
                 .post('/api/auth/register')
