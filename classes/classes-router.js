@@ -29,7 +29,7 @@ router.get('/', restricted, (req, res) => {
 });
 
 // GET-byId classes     >>      Working
-router.get('/:id', (req, res) => {
+router.get('/:id', restricted, (req, res) => {
   const { id } = req.params;
 
   Classes.getByIdClasses(id)
